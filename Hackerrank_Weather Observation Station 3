@@ -1,0 +1,7 @@
+# Query a list of CITY names from STATION with even ID numbers only. You may print the results in any order, 
+#but must exclude duplicates from your answer.
+
+#https://www.hackerrank.com/challenges/weather-observation-station-3?h_r=next-challenge&h_v=zen
+
+SELECT DISTINCT CITY FROM STATION
+WHERE ID % 2 = 0;
