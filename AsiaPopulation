@@ -1,0 +1,3 @@
+SELECT SUM(City.Population) FROM City, Country
+Where City.Countrycode = country.code
+AND country.continent = 'Asia';
