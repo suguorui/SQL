@@ -1,0 +1,9 @@
+/*
+generate a report containing three columns:  Name, Grade and Mark
+*/
+Select if(Grade<8, NULL, Name), Grade, Marks
+From Students
+inner join Grades
+on Marks >= Min_Mark AND Marks <= Max_Mark
+Order By
+Grade desc, Name, Marks asc;
