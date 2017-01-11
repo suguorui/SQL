@@ -1,0 +1,23 @@
+SELECT c.hacker_id, h.name, count(c.challenge_id) as cn
+FROM challenges as c
+JOIN hackers as h
+ON c.hacker_id = h.hacker_id
+GROUP BY c.hacker_id having
+/*
+Max number of challenges created
+*/
+cn =
+(SELECT count(c1.challenge_id) 
+ FROM challenges as c1
+ GROUP BY c1.hacker_id
+ ORDER BY count(c1.challenge_id) DESC LIMIT 1)
+/*
+Cut entries w/ same number of challenges but not max.
+*/
+OR
+cn not in
+(SELECT count(c2.challenge_id)
+ FROM challenges as c2
+ GROUP BY c2.hacker_id having
+ c.hacker_id != c2.hacker_id)
+ORDER BY cn DESC, c.hacker_id;
