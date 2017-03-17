@@ -1,0 +1,11 @@
+/*
+https://www.hackerrank.com/challenges/the-pads
+*/
+
+SELECT concat(Name, '(',Substring(Occupation,1,1),')') FROM OCCUPATIONS
+Order by Name;
+
+SELECT concat('There are total', ' ',count(occupation), ' ',lower(occupation),'s.') 
+FROM OCCUPATIONS
+Group by occupation
+Order by count(occupation), occupation;
